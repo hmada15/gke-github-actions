@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install ingress-nginx to handel trafic
+# Install ingress-nginx to handle the traffic.
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.0/deploy/static/provider/cloud/deploy.yaml
 
 docker build -t hmada15/multi-front:latest -t hmada15/multi-front:$GIT_SHA ./front
