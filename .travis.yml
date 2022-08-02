@@ -16,3 +16,5 @@ before_install:
   - gcloud config set project kuber-multi
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials cluster-1
+  # Login to Docker Hub
+  - echo "$DOCKER_PASS" | docker login -u "$DICKER_USERNAME" --password-stdin
