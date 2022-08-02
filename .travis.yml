@@ -4,6 +4,7 @@ services:
 
 env:
   global:
+    - GIT_SHA=$(git rev-parse HEAD)
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
 before_install:
@@ -12,9 +13,9 @@ before_install:
   # Install GCP CLI
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
-  
+
   - gcloud components update kubectl
-  # Login to GCP using the file that Travis-ci unencrypted when building the project 
+  # Login to GCP using the file that Travis-ci unencrypted when building the project
   - gcloud auth activate-service-account --key-file=service-account.json
   # Config gcloud cli
   - gcloud config set project kuber-multi
